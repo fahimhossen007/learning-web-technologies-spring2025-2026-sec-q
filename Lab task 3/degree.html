@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <fieldset style="width: 300px;">
+        <legend><b>DEGREE</b></legend>
+        <form onsubmit="return validate()">
+            <input type="checkbox" name="degree" value="SSC"> SSC
+            <input type="checkbox" name="degree" value="HSC"> HSC
+            <input type="checkbox" name="degree" value="BSC"> BSC <br>
+            <hr>
+            <input type="submit" value="Submit">
+            <p id="msg" style="color:red"></p>
+        </form>
+    </fieldset>
+    <script>
+    function validate() {
+        let c = document.querySelectorAll('input[name="degree"]:checked');
+        if(c.length === 0) { // [cite: 52]
+            document.getElementById('msg').innerText = "At least one has to be selected";
+            return false;
+        }
+        return true;
+    }
+    </script>
+</body>
+</html>

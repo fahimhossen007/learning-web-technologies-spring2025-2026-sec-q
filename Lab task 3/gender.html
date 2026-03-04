@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <fieldset style="width: 300px;">
+        <legend><b>GENDER</b></legend>
+        <form onsubmit="return validate()">
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other<br>
+            <hr>
+            <input type="submit" value="Submit">
+            <p id="msg" style="color:red"></p>
+        </form>
+    </fieldset>
+
+    <script>
+    function validate() {
+        if(!document.querySelector('input[name="gender"]:checked')) { // [cite: 35]
+            document.getElementById('msg').innerText = "At least one has to be selected";
+            return false;
+        }
+        return true;
+    }
+    </script>
+</body>
+</html>

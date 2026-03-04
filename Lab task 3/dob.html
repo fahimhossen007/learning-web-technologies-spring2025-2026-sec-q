@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <fieldset style="width: 300px;">
+        <legend><b>DATE OF BIRTH</b></legend>
+        <form onsubmit="return validate()">
+            dd <br> <input type="text" id="dd" size="2"> / 
+            mm <input type="text" id="mm" size="2"> / 
+            yyyy <input type="text" id="yyyy" size="4"> <br>
+            <hr>
+            <input type="submit" value="Submit">
+            <p id="msg" style="color:red"></p>
+        </form>
+    </fieldset>
+
+    <script>
+    function validate() {
+        let d = parseInt(document.getElementById('dd').value);
+        let m = parseInt(document.getElementById('mm').value);
+        let y = parseInt(document.getElementById('yyyy').value);
+        let msg = document.getElementById('msg');
+
+        if(isNaN(d) || isNaN(m) || isNaN(y)) { msg.innerText = "Cannot be empty"; return false; } // [cite: 42]
+        if(d<0 || d>31 || m<1 || m>12 || y<1900 || y>2016) { // [cite: 43]
+            msg.innerText = "Invalid (dd: 0-31, mm: 1-12, yyyy: 1900-2016)"; return false;
+        }
+        return true;
+    }
+    </script>
+</body>
+</html>

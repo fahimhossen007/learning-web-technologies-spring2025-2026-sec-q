@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <fieldset style="width: 300px;">
+        <legend><b>NAME</b></legend>
+        <form onsubmit="return validate()">
+            <input type="text" id="name"><br>
+            <hr>
+            <input type="submit" value="Submit">
+            <p id="msg" style="color:red"></p>
+        </form>
+    </fieldset>
+
+    <script>
+    function validate() {
+        let n = document.getElementById('name').value.trim();
+        let words = n.split(/\s+/).filter(w => w.length > 0);
+        let regex = /^[a-zA-Z][a-zA-Z.\-\s]*$/;
+        let msg = document.getElementById('msg');
+
+        if(n === "") { msg.innerText = "Cannot be empty"; return false; } // [cite: 11]
+        if(words.length < 2) { msg.innerText = "Contains at least two words"; return false; } // [cite: 12]
+        if(!regex.test(n)) { msg.innerText = "Can contain a-z, A-Z, dot or dash and must start with a letter"; return false; } // [cite: 13, 14]
+        msg.style.color = "green"; msg.innerText = "Valid!"; return true;
+    }
+    </script>
+</body>
+</html>
