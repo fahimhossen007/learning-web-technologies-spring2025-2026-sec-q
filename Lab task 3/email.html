@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <fieldset style="width: 300px;">
+        <legend><b>EMAIL</b></legend>
+        <form onsubmit="return validate()">
+            <input type="text" id="email" placeholder="sample@example.com">
+            <button title="hint: sample@example.com">i</button><br> <hr>
+            <input type="submit" value="Submit">
+            <p id="msg" style="color:red"></p>
+        </form>
+    </fieldset>
+
+    <script>
+    function validate() {
+        let e = document.getElementById('email').value;
+        let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let msg = document.getElementById('msg');
+
+        if(e === "") { msg.innerText = "Cannot be empty"; return false; } // [cite: 21]
+        if(!regex.test(e)) { msg.innerText = "Must be a valid email address"; return false; } // [cite: 23]
+        msg.style.color = "green"; msg.innerText = "Valid!"; return true;
+    }
+    </script>
+</body>
+</html>
