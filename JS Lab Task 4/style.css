@@ -1,0 +1,19 @@
+
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+div {
+    margin-bottom: 10px;
+}
+label {
+    display: block;
+    font-weight: bold;
+}
+input {
+    padding: 5px;
+    margin-top: 5px;
+}
+input[readonly] {
+    background-color: #eeeeee;
+}
