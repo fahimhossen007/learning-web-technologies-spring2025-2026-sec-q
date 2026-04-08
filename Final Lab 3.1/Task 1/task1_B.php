@@ -1,9 +1,3 @@
-<?php
-if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    echo "Your Name is: " . $name;
-}
-?>
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +9,12 @@ if(isset($_POST['submit'])){
   Name: <input type="text" name="name">
   <input type="submit" name="submit" value="Submit">
 </form>
+<?php
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    echo "Your Name is: " . $name;
+}
+?>
 
 </body>
 </html>
